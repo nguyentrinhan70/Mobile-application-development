@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 10</title>
+    <meta name="description" content="Kết nối server">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch10">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Lập trình Ứng dụng Di động</h1>
+        <h2 style="color:white">Kết nối server</h2>
+      </section>
+
+      <section class="bgIntroduction-Ch10">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Nội dung</h2>
+        <ul>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Kết nối API 'http'</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Cất dữ liệu trên server</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch10">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Kết nối API 'http'</h2>
+        <ul>
+          <li><a href="https://angular.io/api">Tham khảo thư viện Angular</a></li>
+          <li>Cài đặt</li>
+          <li>Khai báo</li>
+          <li>Sử dụng</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicKeyword-Ch10" >
+        <h2 id="color-text-heading">Package API 'common/http' trong Angular</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_10/http.png" width="900" height="500">
+        </p>
+      </section>
+
+      <section class="bgTopicDetail-Ch10">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Cài đặt</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">Command Prompt</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+// cài angular package: common/http 
+// thư viện Angular đã có sẵn, nếu không có, chạy:
+// npm install --save @angular/common/http
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">Lệnh cài đặt</li>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch10">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Khai báo</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">app.module.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { HttpClient, HttpClientModule } from '@angular/common/http'; // <--
+
+@NgModule({
+  declarations: [
+    MyApp,
+  ],
+ imports: [
+    HttpClientModule // <--
+  ],
+})
+export class AppModule {}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section class="bgTopicDetail-Ch10">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sử dụng - thêm file provider</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">server.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+@Injectable()
+export class Server {
+  constructor(public http: HttpClient) {
+  }
+  post(url: string, params?: any) {
+    const CONTENT_TYPE = 'application/x-www-form-urlencoded; charset=UTF-8';
+    let headers = new HttpHeaders({ 'Content-Type': CONTENT_TYPE });
+    let options = { headers: headers };
+    return this.http.post(url, params, options);
+  }
+}
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch10">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Khai báo</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">app.module.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Server } from '../providers/server'; // <--
+@NgModule({
+  declarations: [
+    MyApp,
+  ],
+  providers: [
+    Server,
+  ]
+})
+export class AppModule {}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch10">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sử dụng</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">data.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Injectable } from '@angular/core';
+import { Server } from '../providers/server';
+
+@Injectable()
+export class Data {
+
+  constructor(public storage: Storage, public http: Http, public server: Server){
+  }
+
+  ionViewDidLoad() {
+      console.log('Start Data');
+  }
+
+  startFromServer(): void {
+    let url = 'http://pvhoang.vn/atm/atmData.php';
+    this.server.post(url).subscribe((response:any) => {
+    }, error => {
+      console.log(error.message);
+    });
+  }
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <h5 style="color: white;">data.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+  saveToServer(): void {
+    let url = 'http://pvhoang.vn/atm/atmData.php';
+    let params = 'param=1';  
+    this.server.post(url, params).subscribe((response:any) => {
+    }, error => {
+         console.log(error.message);
+    });
+  }
+}
+         </code></pre>
+        </div>
+      </section>
+   </div>
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>

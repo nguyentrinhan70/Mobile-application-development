@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 1</title>
+    <meta name="description" content="Phát triển Ứng dụng Di động">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Orient">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Phát triển Ứng dụng Di động</h1>
+        <h2 style="color:white">Giới thiệu</h2>
+      </section>
+
+      <section class="bgIntroduction-Orient">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Nội dung</h2>
+        <ul>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Kế hoạch học tập</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Thảo luận sinh viên</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicKeyword-Orient">
+        <h2 style="color:white"><img src="img/system/calendar-xl.png" id="heading-text-image">&nbsp;&nbsp;Kế hoạch học tập</h2>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Mục lục</h2>
+        <ul>
+          <li>Website</li>
+          <li>Mục đích môn học</li>
+          <li>Công nghệ di động</li>
+          <li>Tài liệu học tập</li>
+          <li>Công việc học tập</li>
+          <li>Phân bố điểm</li>
+          <li>Hoạt động trong lớp</li>
+          <li>Thể loại dự án</li>
+          <li>Thị trường di động</li>
+          <li>Hỏi & Đáp</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/website-optimization-2-xl.png" id="heading-text-image">&nbsp;&nbsp;Website</h2>
+        <ul>
+          <li><img src="img/system/website-design-xl.png" id="sub-text-image">&nbsp;&nbsp;http://www.pvhoang.vn/pdu
+            <ul>
+              <li>Chương trình học phần</li>
+              <li>Thông tin mới nhất</li>
+              <li>Điểm cập nhật</li>
+              <li>Slides trình chiếu</li>
+              <li>Các thông tin khác</li>
+            </ul>
+          </li>
+          <li><img src="img/system/email-5-xl.png" id="sub-text-image">&nbsp;&nbsp;nguyentrinhan70@gmail.com</li>
+          <li><img src="img/system/time-xl.png" id="sub-text-image">&nbsp;&nbsp;Giờ gặp: theo hẹn</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Mục đích</h2>
+        <ul>
+          <li>Giúp bạn:
+            <ul>
+              <li>cách lập trình phần mềm theo hướng đối tượng một cách hiệu quả nhất.</li>
+              <li>cách thiết kế giao diện và triển khai mô hình từ ý tưởng trước khi lập trình.</li>
+              <li>phát triển ứng dụng di động với nền tảng Web 2.0 Hybrid Ionic mới nhất trên HĐH Android và iOS.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Mục đích</h2>
+        <ul>
+          <li>Giúp bạn:
+            <ul>
+              <li>có động lực và niềm tin chọn ngành Phát triển Phần mềm cho sự nghiệp tương lai.</li>
+              <li>thêm cơ hội làm việc cho các công ty lớn nhất Việt Nam: FPT, TMA và thế giới: Facebook, Google, v.v.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicKeyword-Orient">
+        <h2 style="color:white"><img src="img/system/film-xl.png" id="heading-text-image">&nbsp;&nbsp;Công nghệ di động</h2>
+        <ul>
+          <li><img src="img/system/website-optimization-2-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="http://present.ionicframework.com">Nền tảng Ionic</a></li>
+          <li><img src="img/system/website-optimization-2-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="http://noeticforce.com/best-hybrid-mobile-app-ui-frameworks-html5-js-css">Các nền tảng di động Hybrid</a></li>
+          <li><img src="img/system/website-optimization-2-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="https://www.codementor.io/fmcorz/react-native-vs-ionic-du1087rsw">So sánh ReactNative và Ionic 1</a></li>
+          <li><img src="img/system/website-optimization-2-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="http://notcuder.com/react-native-co-du-tot-de-thay-the-cho-ionic-trong-phat-trien-ung-dung-di-dong-da-nen-tang/">So sánh ReactNative và Ionic 2</a></li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/book-xl.png" id="heading-text-image">&nbsp;&nbsp;Tài liệu</h2>
+        <ul>
+          <li>Giáo trình
+            <ul>
+              <li><i>“Phát triển Ứng dụng Di động”</i>, Phan Viet Hoang, 2017</li>
+            </ul>
+          </li>
+          <li>Sách
+            <ul>
+              <li><i>“Mobile App Development with Ionic 2”</i>, Christopher Griffith, 2017</li>
+              <li><i>“Building Mobile App with Ionic 2”</i>, Josh Morony, 2016</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/parallel-tasks-xl.png" id="heading-text-image">&nbsp;&nbsp;Công việc</h2>
+        <ul>
+          <li>Trình bày trong lớp</li>
+          <li>Bài tập
+            <ul>
+              <li>thiết kế ý tưởng</li>
+              <li>thiết kế mô hình (trên giấy)</li>
+              <li>lập trình</li>
+            </ul>
+          </li>
+          <li>Dự án</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/page-quality-xl.png" id="heading-text-image">&nbsp;&nbsp;Phân bố điểm</h2>
+        <ul>
+          <li>Phân bố điểm
+            <ul>
+              <li>Bài tập = 30%</li>
+              <li>Thực hành = 70%</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient"> 
+        <h2 style="color:white"><img src="img/system/group-xl.png" id="heading-text-image">&nbsp;&nbsp;Hoạt động trong lớp</h2>
+        <ul>
+          <li>Lý thuyết
+            <ul>
+              <li>phân tích bài học</li>
+              <li>thảo luận kỹ thuật</li>
+            </ul>
+          </li>
+          <li>Thực hành
+            <ul>
+              <li>trình chiếu ý tưởng</li>
+              <li>thảo luận bài tập</li>
+              <li>thảo luận dự án</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/group-xl.png" id="heading-text-image">&nbsp;&nbsp;Dự án</h2>
+        <ul>
+          <li>Thể loại
+            <ul>
+              <li>Trò chơi</li>
+              <li>Mua sắm</li>
+              <li>Dịch vụ</li>
+              <li>Hình ảnh, nhạc</li>
+              <li>Nông nghiệp</li>
+              <li>Nhận dạng: chữ viết, chữ in, tiếng nói</li>
+              <li>Học ngoại ngữ, giáo dục</li>
+              <li>Du lịch, khách sạn</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Ứng dụng di động</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_01/game.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Trò chơi</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Ứng dụng di động</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_01/muasam.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Mua sắm</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Ứng dụng di động</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_01/dichvu.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Dịch vụ</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicKeyword-Orient" >
+        <h2 id="color-text-heading">Ứng dụng di động - Nông nghiệp</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_01/nong_dan_hieu_biet.png" width="700" height="600">
+        </p>
+      </section>
+
+      <section class="bgTopicKeyword-Orient" >
+        <h2 id="color-text-heading">Ứng dụng di động - Nông nghiệp</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_01/so_mau_la_lua_5.png" width="700" height="600">
+        </p>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Ứng dụng di động</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_01/hotel.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Du lịch</li>
+            <li>Khách sạn</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Ứng dụng di động</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_01/music.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Nhạc</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicKeyword-Orient">
+        <h2 style="color:white"><img src="img/system/film-xl.png" id="heading-text-image">&nbsp;&nbsp;Thị trường di động</h2>
+        <ul>
+          <li><img src="img/system/website-optimization-2-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="http://market.ionic.io">Chợ sản phẩm</a></li>
+          <li><img src="img/system/website-optimization-2-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="https://www.topitworks.com/vi/viec-lam/mobile-app-luong-tu-8-trieu-18-trieu-870046">Việc làm</a></li>
+          <li><img src="img/system/video-play-4-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=hi1bPz7Po3o">Đào tạo</a></li>
+        </ul>
+      </section>
+
+<!--       <section class="bgTopicKeyword-Orient">
+        <h2 style="color:white"><img src="img/system/film-xl.png" id="heading-text-image">&nbsp;&nbsp;Lập trình ứng dụng cho thiết bị di động</h2>
+        <ul>
+          <li><img src="img/system/video-play-4-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=hi1bPz7Po3o">Chương trình Không gian Số - VTV 2</a></li>
+        </ul>
+      </section>
+ -->
+       <section class="bgTopicKeyword-Orient" >
+        <h2 style="color:white"><img src="img/system/decision-xl.png" id="heading-text-image">&nbsp;&nbsp;Hỏi & Đáp</h2>
+      </section>
+
+      <section class="bgTopicKeyword-Orient" >
+        <h2 id="color-text-heading">CTĐT - KSPM - KCNTT - ĐHPVĐ</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_01/CNTT.png" width="700" height="600">
+        </p>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;CTĐT - KSPM - KCNTT - ĐHPVĐ</h2>
+        <ul>
+          <li>B1-22 - Lập trình hướng đối tượng
+            <ul>
+              <li>Java ?</li>
+            </ul>
+          </li>
+          <li>B1-23 - Cấu trúc dữ liệu và giải thuật
+            <ul>
+              <li>MySQL ?</li>
+            </ul>
+          </li>
+          <li>B2-39 - Thiết kế và lập trình web
+            <ul>
+              <li>PhP ?</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;CTĐT - KSPM - KCNTT - ĐHPVĐ</h2>
+        <ul>
+          <li>B3-47 - Lập trình Java nâng cao
+            <ul>
+              <li>Phân tích và thiết kế hướng đối tượng</li>
+              <li>Eclipse, NetBean, NPM, Sublime Text ?</li>
+            </ul>
+          </li>
+          <li>B3-46 - Lập trình ứng dụng mobile
+            <ul>
+              <li>Native: Android, iOS ?</li>
+              <li>Hybrid: Ionic, ReactNative ?</li>
+            </ul>
+          </li>
+          <li>B2-37 - Công nghệ phần mềm
+            <ul>
+              <li>Agile, RUP, Waterfall ?</li>
+            </ul>
+          </li>
+          <li>B3-53 - Kiểm thử phần mềm
+            <ul>
+              <li>Cucumber ?</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Sinh viên</h2>
+        <ul>
+          <li>Khảo sát
+            <ul>
+              <li>Kiến thức ngôn ngữ lập trình: C++, C#, Java</li>
+            </ul>
+          </li>
+          <li>Thảo luận
+            <ul>
+              <li>Kiến thức phần mềm di động</li>
+              <li>Hệ điều hành: Android (Samsung), iOS (iPhone)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Getting Started</h2>
+        <ul>
+          <li>Ionic Framework
+            <ul>
+              <li>Ionic Framework is an open source UI toolkit for building performant,
+                  high-quality mobile and desktop apps using web technologies — HTML,
+                  CSS, and JavaScript — with integrations for popular frameworks like Angular and React.
+                  Get started building by installing Ionic or
+                  following our First App Tutorial to learn the main concepts.</li>
+            </ul>
+          </li>
+             <h1 style="color:white"><img src="img/buoi_01/ionic001.png">&nbsp;&nbsp;Ứng dụng di động</h1>
+      </section>
+<section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Overview</h2>
+        <ul>
+          <li>Khảo sát
+            <ul>
+              <li>Ionic Framework focuses on the frontend UX and UI interaction
+                  of an app — UI controls, interactions, gestures, animations.
+                  It's easy to learn, and integrates with other libraries or frameworks, such as Angular,
+                  React, or Vue. Alternatively, it can be used standalone without any
+                  frontend framework using a simple script include.
+                  If you’d like to learn more about Ionic Framework before diving in,
+                  we created a video to walk you through the basics.</li>
+            </ul>
+          </li>
+          <li>One codebase, running everywhere
+            <ul>
+              <li>Ionic is the only mobile app stack that enables web developers to build apps
+                  for all major app stores and the mobile web from a single codebase.
+                  And with Adaptive Styling, Ionic apps look and feel at home on every device.</li>
+              <li>Hệ điều hành: Android (Samsung), iOS (iPhone)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+       <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Overview</h2>
+        <ul>
+          <li>A focus on performance
+            <ul>
+              <li>Ionic is built to perform and behave great on the latest mobile devices with best
+                  practices like efficient hardware accelerated transitions, and touch-optimized gestures.
+              </li>
+            </ul>
+          </li>
+          <li>Clean, simple, and functional design
+            <ul>
+              <li>Ionic is designed to work and display beautifully on all current mobile
+                  devices and platforms. With ready-made components, typography,
+                  and a gorgeous (yet extensible) base theme that adapts to each platform, you'll be building in style.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+       <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Overview</h2>
+        <ul>
+          <li>A focus on performance
+            <ul>
+              <li>Ionic emulates native app UI guidelines and uses native SDKs,
+                  bringing the UI standards and device features of native apps
+                  together with the full power and flexibility of the open web.
+                  Ionic uses Capacitor (or Cordova) to deploy natively, or runs in the browser as a Progressive Web App.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+
+       <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Goals</h2>
+        <ul>
+          <li>Cross-platform
+<!--            <ul>-->
+<!--              <li>-->
+<!--              </li>-->
+<!--            </ul>-->
+          </li>
+
+          <li>Web Standards-based
+<!--            <ul>-->
+<!--              <li>-->
+<!--              </li>-->
+<!--            </ul>-->
+          </li>
+
+          <li>Beautiful Design
+<!--            <ul>-->
+<!--              <li>-->
+<!--              </li>-->
+<!--            </ul>-->
+          </li>
+
+          <li>Simplicity
+<!--            <ul>-->
+<!--              <li>-->
+<!--              </li>-->
+<!--            </ul>-->
+          </li>
+
+          <li>Framework Compatibility
+<!--            <ul>-->
+<!--              <li>-->
+<!--              </li>-->
+<!--            </ul>-->
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Environment Setup</h2>
+        <ul>
+          <li>CONTENTS
+            <ul>
+              <li>    Terminal
+              </li>
+                <li>
+                    Node & npm
+                </li>
+                <li>Git  </li>
+            </ul>
+          </li>
+          <li>Environment
+            <ul>
+              <li>To get started with Ionic Framework, the only requirement is a Node & npm environment.
+
+              <li>Of course, a code editor is also required.
+                Visual Studio Code is recommended.
+                Visual Studio Code is a free,
+                batteries-included text editor made by Microsoft.
+                PyCharm.
+            </li>
+</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">Terminal</h2>
+        <ul>
+         <li>
+             For Windows, Command Prompt and PowerShell are supported.
+             WSL is known to work with Ionic, but may not be supported.
+         </li>
+         <li>
+             For macOS, the built-in Terminal app is supported.
+         </li>
+      </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Node & npm</h2>
+        <ul>
+          <li>?
+            <ul>
+              <li>    Almost all tooling for modern JavaScript projects is based in Node.js.
+                  The download page has prebuilt installation packages for all platforms.
+                  We recommend selecting the LTS version to ensure best compatibility.
+              </li>
+                <li>
+                    Node is bundled with npm, the package manager for JavaScript.
+                </li>
+                <li>To verify the installation, open a new terminal window and run:</li>
+            </ul>
+          </li>
+
+              <ul> node --version </ul>
+              <ul>  npm --version </ul>
+
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Installing Ionic</h2>
+        <ul>
+          <li>CONTENTS
+            <ul>
+              <li> Install the Ionic CLI
+              </li>
+              <li>
+                Start an App
+              </li>
+             <li>Run the App  </li>
+            </ul>
+          </li>
+        </ul>
+
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Install the Ionic CLI</h2>
+        <ul>
+          <li>Before proceeding, make sure your computer has Node.js installed.
+              See these instructions to set up an environment for Ionic.
+              Install the Ionic CLI with npm:
+            <ul>
+              <li>    npm install -g @ionic/cli
+              </li>
+                <li>
+                    If there was a previous installation of the Ionic CLI,
+                    it will need to be uninstalled due to a change in package name.
+                </li>
+                <li>npm uninstall -g ionic</li>
+                <li> npm install -g @ionic/cli  </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Start an App</h2>
+        <ul>
+          <li>Create an Ionic app using one of the pre-made app templates,
+              or a blank one to start fresh. The three most common starters are the blank starter,
+              tabs starter, and sidemenu starter. Get started with the ionic start command:
+            <ul>
+              <li>    ionic start myApp tabs
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </section>
+
+            <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Start an App</h2>
+        <ul>
+          <li>Create an Ionic app using one of the pre-made app templates,
+              or a blank one to start fresh. The three most common starters are the blank starter,
+              tabs starter, and sidemenu starter. Get started with the ionic start command:
+            <ul>
+              <li>    ionic start myApp tabs
+              </li>
+                <img src="img/buoi_01/myApp.png" style= "position: absolute; right: 1px; bottom: 1px; width: 2067px; height: 475px"></img>
+            </ul>
+          </li>
+
+        </ul>
+      </section>
+
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Run the App</h2>
+        <ul>
+          <li>The majority of Ionic app development can be spent right in the browser using the ionic serve command:
+            <ul>
+              <li>    cd myApp
+
+
+              </li>
+                <li>
+                   ionic serve
+                </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Install the Ionic CLI</h2>
+        <ul>
+          <li>CONTENTS
+            <ul>
+              <li>    Terminal
+              </li>
+                <li>
+                    Node & npm
+                </li>
+                <li>Git  </li>
+            </ul>
+          </li>
+          <li>Environment
+            <ul>
+              <li>To get started with Ionic Framework, the only requirement is a Node & npm environment.
+
+              <li>Of course, a code editor is also required.
+                Visual Studio Code is recommended.
+                Visual Studio Code is a free,
+                batteries-included text editor made by Microsoft.
+                PyCharm.
+            </li>
+</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Install the Ionic CLI</h2>
+        <ul>
+          <li>CONTENTS
+            <ul>
+              <li>    Terminal
+              </li>
+                <li>
+                    Node & npm
+                </li>
+                <li>Git  </li>
+            </ul>
+          </li>
+          <li>Environment
+            <ul>
+              <li>To get started with Ionic Framework, the only requirement is a Node & npm environment.
+
+              <li>Of course, a code editor is also required.
+                Visual Studio Code is recommended.
+                Visual Studio Code is a free,
+                batteries-included text editor made by Microsoft.
+                PyCharm.
+            </li>
+</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Install the Ionic CLI</h2>
+        <ul>
+          <li>CONTENTS
+            <ul>
+              <li>    Terminal
+              </li>
+                <li>
+                    Node & npm
+                </li>
+                <li>Git  </li>
+            </ul>
+          </li>
+          <li>Environment
+            <ul>
+              <li>To get started with Ionic Framework, the only requirement is a Node & npm environment.
+
+              <li>Of course, a code editor is also required.
+                Visual Studio Code is recommended.
+                Visual Studio Code is a free,
+                batteries-included text editor made by Microsoft.
+                PyCharm.
+            </li>
+</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;Install the Ionic CLI</h2>
+        <ul>
+          <li>CONTENTS
+            <ul>
+              <li>    Terminal
+              </li>
+                <li>
+                    Node & npm
+                </li>
+                <li>Git  </li>
+            </ul>
+          </li>
+          <li>Environment
+            <ul>
+              <li>To get started with Ionic Framework, the only requirement is a Node & npm environment.
+
+              <li>Of course, a code editor is also required.
+                Visual Studio Code is recommended.
+                Visual Studio Code is a free,
+                batteries-included text editor made by Microsoft.
+                PyCharm.
+            </li>
+</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+  </div>
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+
+  </body>
+</html>

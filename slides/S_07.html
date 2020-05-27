@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 7</title>
+    <meta name="description" content="Xử lý dữ liệu local">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch07">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Lập trình Ứng dụng Di động</h1>
+        <h2 style="color:white">Xử lý dữ liệu local</h2>
+      </section>
+
+      <section class="bgIntroduction-Ch07">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Nội dung</h2>
+        <ul>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Local storage</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Device database</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Ionic storage</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Local storage</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">Command Prompt</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+export class HomePage {
+
+  constructor(){
+    localStorage.setItem('someSetting', 'off');
+    let someSetting = localStorage.getItem('someSetting');
+  }
+
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">Storage in browser (5MB)</li>
+            <li style="font-size: 35px;">localStorage: global variable</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Device database</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">Command Prompt</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+// cài cordova plugin: sqLite 
+// ionic cordova plugin add cordova-sqlite-storage
+
+export class HomePage {
+
+  constructor(){
+    var db = window.sqlitePlugin.openDatabase({name: "my.db"});
+    db.transaction(function(tx) {
+      tx.executeSql('DROP TABLE IF EXISTS test_table');
+      tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer)');
+      tx.executeSql("INSERT INTO test_table (data, data_num) VALUES (?,?)", ["test", 100], function(tx, res) {
+        console.log("insertId: " + res.insertId + " -- probably 1");
+        console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
+      }, function(e) {
+        console.log("ERROR: " + e.message);
+      });
+    });
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">SQLite database</li>
+            <li style="font-size: 35px;">Supported by Cordova framework</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgIntroduction-Ch07">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Ionic storage</h2>
+        <ul>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Cài đặt plugin/package</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Thêm components</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Tạo Model</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Cài đặt plugin/package</h2>
+        <ul>
+          <li><a href="https://ionicframework.com/docs/storage/">Tham khảo thư viện</a></li>
+          <li>Cài đặt</li>
+          <li>Khai báo</li>
+          <li>Sử dụng</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicKeyword-Ch07" >
+        <h2 id="color-text-heading">Thư viện 'storage' trong Ionic</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_07/storage.png" width="900" height="500">
+        </p>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Cài đặt</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">Command Prompt</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+// cài cordova plugin: sqLite 
+ionic cordova plugin add cordova-sqlite-storage
+
+// cài ionic package: storage 
+npm install --save @ionic/storage
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">Lệnh cài đặt</li>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Khai báo</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">app.module.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { IonicStorageModule } from '@ionic/storage'; // <--
+
+@NgModule({
+  declarations: [
+    MyApp,
+  ],
+  imports: [
+    IonicStorageModule.forRoot() // <--
+  ],
+})
+export class AppModule {}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sử dụng</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">data.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Storage } from '@ionic/storage'; // <--
+import { Injectable } from '@angular/core';
+import { Account } from '../models/Account';
+
+@Injectable()
+export class Data {
+  public accounts: Account[] = [];
+
+  constructor(public storage: Storage){ // <--
+    // this.storage.set('accounts', this.accounts);
+    // this.storage.remove('accounts');
+    this.accounts = this.storage.get('accounts');
+  }
+
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Thêm components</h2>
+        <ul>
+          <li><a href="https://ionicframework.com/docs/components/">Tham khảo thư viện</a></li>
+          <li>Sử dụng</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicKeyword-Ch07" >
+        <h2 id="color-text-heading">Thư viện 'alerts' trong Ionic</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_07/alerts.png" width="900" height="500">
+        </p>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sử dụng</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@angular/core'; // <--
+import { NavController, AlertController } from 'ionic-angular'; // <--
+
+@Component({
+  selector: 'home-page',
+  templateUrl: 'home.html'
+})
+
+export class HomePage {
+  constructor(public nav: NavController, public alert: AlertController) { // <--
+  }
+
+  viewAccount(): void {
+    let prompt = this.alert.create({ // <--
+      title: 'Chi tiết tài khoản',
+      message: 'Số tiền:' + this.account.getAmount(),
+      buttons: [
+        {
+          text: 'OK'
+        },
+      ]
+    });
+    prompt.present();
+  }
+}
+         
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo Model</h2>
+        <ul>
+          <li>Tạo class data</li>
+          <li>Sử dụng class data</li>
+          <li>Tạo class hổ trợ</li>
+          <li>Khai báo class hổ trợ</li>
+          <li>Khởi động class hổ trợ</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo class Account</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">/models/Account.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+export class Account {
+  accountNo:string = '';
+  password:string = '';
+  amount:number = 0;
+
+  constructor(){
+  }
+  setAccountNo(accountNo){
+    this.accountNo = accountNo;
+  }
+  setPassword(password){
+    this.password = password;
+  }
+}
+         
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sử dụng class data</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@angular/core';
+import { Account } from '../../models/Account'; // <--
+
+@Component({
+  selector: 'home-page',
+  templateUrl: 'home.html'
+})
+
+export class HomePage {
+  account:Account; // <--
+
+  constructor() { 
+  }
+}
+         
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo class hổ trợ Data</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">/providers/data.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Injectable } from '@angular/core'; // <--
+import { Account } from '../models/Account';
+
+@Injectable()
+export class Data {
+  public accounts: Account[] = [];
+
+  constructor() { // <--
+  }
+  start() {
+  } 
+}
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Khai báo class hổ trợ</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">app.module.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Data } from '../providers/data';
+@NgModule({
+  providers: [
+    Data,
+  ]
+})
+export class AppModule {}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch07">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Khởi động class hổ trợ</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">app.component.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Data } from '../providers/data';
+@Component({
+  templateUrl: 'app.html'
+})
+export class MyApp {
+  rootPage:any = LoginPage;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, dataService: Data) {
+    platform.ready().then(() => {
+      dataService.start(); <--
+    });
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+ 
+  </div>
+
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>

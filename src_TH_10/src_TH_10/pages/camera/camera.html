@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Chụp hình
+    </ion-title>
+<!--     <ion-buttons end>
+      <button ion-button (click)="exit()"><ion-icon name="add"></ion-icon>Bỏ</button>
+    </ion-buttons>  
+ -->  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<img [src]="image">
+
+<ion-fab right bottom>
+    <button ion-fab color="primary" (click)="takePicture()">
+        <ion-icon name="md-camera"></ion-icon>
+    </button>
+</ion-fab>
+
+</ion-content>

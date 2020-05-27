@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 3</title>
+    <meta name="description" content="Phát triển Ứng dụng Di động">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch03">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Phát triển Ứng dụng Di động</h1>
+        <h2 style="color:white">Lập trình TypeScript/Angular</h2>
+      </section>
+
+      <section class="bgTopicKeyword-Ch03" >
+        <h2 id="color-text-heading">Các lớp công nghệ trên công cụ di động</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_04/onion.png" width="800" height="500">
+        </p>
+      </section>
+
+      <section class="bgIntroduction-Ch03">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Nội dung</h2>
+        <ul>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Ngôn ngữ TypeScript - <b>Controller</b></li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Ngôn ngữ Angular - <b>View</b></li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;<a href="https://phocode.com/javascript/angular-lap-trinh-web-voi-angularjs-2/">Nền tảng Angular (Việt)</a></li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Ngôn ngữ TypeScript</h2>
+        <ul>
+          <li><b>Phát triển Controller (MVC)</b></li>
+          <li>Hổ trợ ngôn ngữ JavaScript (ES6)</li>
+          <li>Variables</li>
+          <li>Classes</li>
+          <li>Promises/Observables</li>
+          <li>Template Strings</li>
+          <li>Arrow Functions</li>
+          <li>Types</li>
+          <li>Special Types</li>
+          <li>Typing Functions</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Variables</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+export class HomePage { 
+
+  for (var i = 0 ; i < 10; i++) { 
+    console.log(i); //Output 0-9 
+  } 
+  console.log(i); // Outputs 10
+
+  for (let i = 0 ; i < 10; i++) { 
+    console.log(i); //Outputs 0-9 
+  } 
+  console.log(i); // Uncaught ReferenceError: i is not defined
+
+} 
+          </code></pre>
+<!--           <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+          </code></pre>
+ -->        
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>var</b>: global scope</li>
+            <li style="font-size: 35px;"><b>let</b>: local scope</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Classes</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+export class HomePage { 
+  constructor() {
+  }
+}
+class Rocket {
+  landing(location) { } 
+} 
+class Falcon extends Rocket { 
+  constructor() { 
+    super(); 
+    this.manufacturer = 'SpaceX'; 
+    this.stages = 2; 
+  } 
+  landing(location) { 
+    if ((location == 'OCISLY') || (location == 'JRTI')){ 
+      return 'On a barge'; 
+    } else { 
+      return 'On land'; 
+    } 
+  } 
+} 
+class Antares extends Rocket { 
+  constructor() {
+    super(); 
+    this.manufacturer = 'OrbitalATK'; 
+    this.stages = 2; 
+  } 
+  landing(location) {
+    console.log('In the ocean'); 
+  }
+} 
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">same as Java, C++</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Promises/Observables</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+export class HomePage { 
+  constructor() {
+
+    var greetingPromise = sayHello(); <- asynchronous function (Internet, database)
+    greetingPromise.then(
+      function (greeting) { 
+        console.log(greeting); // 'Hello in the United States’ 
+      }, 
+      function (error) { 
+        console.error('uh oh: ', error); // 'Drat!’ 
+      }
+    );
+
+  }
+}
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Object</b>: deferred/asynchronous computations</li>
+            <li style="font-size: 35px;"><b>Status</b>: pending, fulfilled, rejected</li>
+            <li style="font-size: 35px;"><b>then</b>: registers callbacks</li>
+            <li style="font-size: 35px;"><b>Observables</b>: resolves values asynchronously </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Template Strings</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+export class HomePage { 
+  constructor() {
+  }
+  func() {
+    let template = ` <div> <h2>{{book.name}}</h2> <p> {{book.summary}} </p> </div> `;
+    let user = {name:'Rey'}; 
+    let template = ` <div>Hello, <span>${ user.name }</span></div> `; 
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">built-in templating engine</li>
+            <li style="font-size: 35px;">string interpolation with $</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Arrow Functions</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+export class HomePage { 
+  constructor() {
+  }
+  func() {
+    var multiply = function(x, y) { 
+      return x * y; 
+    };
+    var multiply = (x, y) => { 
+      return x * y;
+    };
+    var missions = [ 
+      { name:'Mercury', flights:6 }, 
+      { name:'Gemini', flights:10 }
+    ];
+    // ES5 
+    console.log(missions.map( 
+        function(mission) { 
+          return mission.flights; 
+        } 
+    )); // [6, 10]
+    // ES6
+    console.log(missions.map( 
+        mission => mission.flights 
+    )); // [6, 10] 
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">no <b>function</b> keyword</li>
+            <li style="font-size: 35px;">array manipulations</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Types</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+export class HomePage { 
+  constructor() {
+  }
+  func() {
+    let num: number; 
+    let str: string; 
+    let bool: boolean; 
+    num = 123; 
+    num = 123.456; 
+    num = '123'; // Error 
+    str = '123'; 
+    str = 123; // Error 
+    bool = true; 
+    bool = false; 
+    bool = 'false'; // Error
+    
+    let booleanArray: boolean[]; 
+    booleanArray = [true, false]; 
+    console.log(booleanArray[0]); // true console.log(booleanArray.length); // 2 
+    booleanArray[1] = true; 
+    booleanArray = [false, false]; 
+    booleanArray[0] = 'false'; // Error! 
+    booleanArray = 'false'; // Error! 
+    booleanArray = [true, 'false']; // Error! 
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">typed array, same as Java</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Special Types</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+export class HomePage { 
+  constructor() {
+  }
+  func() {
+    let someVar: any; 
+    // Takes any and all variable types 
+    someVar = '123'; 
+    someVar = 123;
+
+    // The null and undefined JavaScript literals are effectively treated as the same as the any type:
+    var str: string; 
+    var num: number; 
+    // These literals can be assigned to anything 
+    str = undefined; 
+    num = null; 
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>any,null,undefined,void</b>: special types</li>
+            <li style="font-size: 35px;">null,undefined same as any types</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Typing Functions</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+export class HomePage { 
+  constructor() {
+  }
+  // assign the result to an incorrect data type,
+  // the compiler will throw an error.
+  function sayHello(theName: string): string { 
+    return 'Hello, '+theName; 
+  }
+  // Use :void for no return
+  function log(message): void { 
+    console.log(message); 
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">must return <b>string</b> type</li>
+            <li style="font-size: 35px;">no return in <b>void</b> type</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Ngôn ngữ Angular</h2>
+        <ul>
+          <li><b>Phát triển View (MVC)</b></li>
+          <li>Kết nối Controller</li>
+          <li>Components</li>
+          <li>Inputs</li>
+          <li>Templates
+            <ul>
+              <li>{}: Rendering</li>
+              <li>[]: Binding properties</li>
+              <li>(): Event handling</li>
+              <li>[( )]: Two-way data binding</li>
+              <li>*: The asterisk</li>
+            </ul>
+          </li>
+           <li>Events</li>
+           <li>Custom events</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Components</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@ angular/ core'; 
+
+@Component({ 
+  selector: 'my-first-component', 
+  template: 
+  ` < div > Hello, my name is {{ name}}. 
+    < button (click) =" sayMyName()" > Log my name </ button > </ div > ` 
+}) 
+
+export class MyComponent { 
+  constructor() { 
+    this.name = 'Inigo Montoya' 
+  } 
+  sayMyName() {
+    console.log(' Hello. My name is ' + this.name + '. You killed my father. Prepare to die.')
+  }
+}
+
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">import from <b>Angular library</b></li>
+            <li style="font-size: 35px;">provide some metadata</li>
+            <li style="font-size: 35px;">export the class definition</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Inputs</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component, Input } from '@ angular/ core'; 
+
+@Component({
+  selector: 'current-user', 
+  template: '< div >{{ user.name}} </ div >' 
+})
+
+export class UserProfile { 
+  @Input() user; 
+  constructor() {}
+} 
+
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+< current-user [user] = "currentUser" > </ current-user > 
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">@Input binding to the user variable</li>
+            <li style="font-size: 35px;">data and parameters are similar</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Templates</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+export class HomePage {
+  var username: string;
+  var items = {'Hoang', 'Huy'};
+  constructor() { 
+    this.username = 'Hoang';
+  }
+  onUserClick(event) {
+  }
+} 
+
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+< div > Hello, my name is {{username}}. </ div >
+<card-header [name]="username"></card-header>
+<my-component (click)="onUserClick($event)"></my-component>
+<input [(ngModel)]="username">
+<my-component *ngFor="let item of items"> </my-component>
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">{ }: Rendering</li>
+            <li style="font-size: 35px;">[ ]: Binding properties</li>
+            <li style="font-size: 35px;">( ): Event handling</li>
+            <li style="font-size: 35px;">[( )]: Two-way data binding</li>
+            <li style="font-size: 35px;">*: The asterisk</li>
+          </ul>
+        </div>
+      </section>
+ 
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Events</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@ angular/ core';
+
+@Component({
+})
+
+export class HomePage {
+  constructor() {}
+  clicked() {
+  }
+}
+
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+ <button (click)="clicked()">Click me</button>
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">Function clicked() is activated when click</li>
+          </ul>
+        </div>
+      </section>
+
+ <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Custom Events</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+// -------------------------------------------
+
+import {Component, Output, EventEmitter} from '@ angular/ core';
+@Component({
+  selector: 'user-profile',
+  template: '< div > Hi, my name is </ div >'
+})
+export class UserProfile {
+  @Output() userDataUpdated = new EventEmitter();
+  constructor() {
+     // Update user // ... this.userDataUpdated.emit( this.user);
+  }
+}
+
+// --------------------------------------------
+
+import {Component} from '@ angular/ core';
+import {UserProfile} from './ user-profile';
+export class SettingsPage {
+  constructor(){}
+  userProfileUpdated( user) {
+    // Handle the event
+  }
+}
+
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+            <user-profile (userDataUpdated)="userProfileUpdated($event)"></user-profile>
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>UserProfile</b> broadcasts a custom event to <b>SettingsPage</b></li>
+          </ul>
+        </div>
+ </section>
+
+  </div>
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+
+  </body>
+</html>

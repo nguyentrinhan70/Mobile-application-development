@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 9</title>
+    <meta name="description" content="Truy cập thông tin Internet">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch09">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Lập trình Ứng dụng Di động</h1>
+        <h2 style="color:white">Truy cập thông tin Internet</h2>
+      </section>
+
+      <section class="bgIntroduction-Ch09">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Nội dung</h2>
+        <ul>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Web plugins</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Internet info</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Truy cập tọa độ</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Vẽ bản đồ</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Web plugins</h2>
+        <ul>
+          <li>Plugin: API để Javascript code kết nối thông tin từ Internet
+            <ul>
+              <li>Media, Geolocation</li>
+              <li>from Cordova</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Internet info</h2>
+        <ul>
+          <li>Truy cập trực tiếp qua index.html</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Truy cập tọa độ</h2>
+        <ul>
+          <li><a href="https://ionicframework.com/docs/native/camera">Tham khảo thư viện</a></li>
+          <li>Cài đặt</li>
+          <li>Khai báo</li>
+          <li>Sử dụng</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicKeyword-Ch09" >
+        <h2 id="color-text-heading">Web plugin 'geolocation' trong Ionic</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_09/geolocation.png" width="900" height="500">
+        </p>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Cài đặt</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">Command Prompt</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+// cài cordova plugin: geolocation 
+ionic cordova plugin add cordova-plugin-geolocation
+
+// cài ionic package: geolocation 
+npm install --save @ionic-native/geolocation
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">Lệnh cài đặt</li>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Khai báo</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">app.module.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Geolocation } from '@ionic-native/geolocation'; // <--
+
+@NgModule({
+  declarations: [
+    MyApp,
+  ],
+  providers: [
+    Geolocation // <--
+  ]  
+})
+export class AppModule {}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sử dụng</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">map.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Geolocation } from '@ionic-native/geolocation';
+export class MapPage {
+  latitude: any;
+  longitude: any;
+  constructor(public geolocation: Geolocation){
+    this.geolocation.getCurrentPosition().then(
+        position => {
+          this.latitude = position.coords.latitude;
+          this.longitude = position.coords.longitude;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+}
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Vẽ bản đồ</h2>
+        <ul>
+          <li>Khai báo</li>
+          <li>Sử dụng</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Khai báo</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">src/index.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+...
+<head>
+<meta charset="UTF-8">
+  <title>Ionic App</title>
+  ...
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- add to map.ts for geolocation -->
+  <script src="http://maps.google.com/maps/api/js"></script> <--
+  ...
+</head>
+...
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sử dụng</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">map.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Geolocation } from '@ionic-native/geolocation';
+declare var google; // <--
+
+export class MapPage {
+  @ViewChild('map') mapElement: ElementRef;
+  map: any;
+
+  constructor(public geolocation: Geolocation){
+    this.geolocation.getCurrentPosition().then(
+        position => {
+          this.setMap(position.coords.latitude, position.coords.longitude);
+        });
+  }
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <h5 style="color: white;">map.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+  setMap(latitude, longitude){
+      let mapOptions = {
+        center: new google.maps.LatLng(latitude, longitude),
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+  }
+}
+         </code></pre>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch09">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sử dụng</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">map.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Bản đồ
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #map id="map"></div>  
+</ion-content>
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"></li>
+          </ul>
+        </div>
+      </section>
+
+  </div>
+
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 3 - Thực hành</title>
+    <meta name="description" content="Phát triển Ứng dụng Di động">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch03">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Phát triển Ứng dụng Di động</h1>
+        <h2 style="color:white"><b>Thực hành</b>: Tạo ứng dụng mobile ATM</h2>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo ứng dụng trên laptop</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">Command Prompt</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+1. Cài đặt Node.js và thư viện Ionic, Cordova
+https://nodejs.org/
+npm install -g ionic cordova
+
+2. Cài đặt Sublime Text 3
+https://www.sublimetext.com/3
+
+3. Tạo dự án
+ionic start ATM blank
+cd ATM
+
+4. Chạy ứng dụng
+ionic serve
+
+5. Đổi mobile display
+Press Ctrl-Shift-I
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">Cài đặt Ionic</li>
+            <li style="font-size: 35px;">Tạo ATM </li>
+            <li style="font-size: 35px;">Chạy thử trên laptop</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Chạy ứng dụng trên thiết bị Android</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">Command Prompt</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+1. Ngừng ứng dụng 
+Nhấn Ctrl-C
+
+2. Cài hệ điều hành Android
+ionic cordova platform add android
+
+3. Kết nối thiết bị
+  . nối dây vào cổng USB
+  . chuyển thiết bị vào chế độ Debug
+  Settings->Developer options->USB debugging
+
+4. Chạy ATM trên thiết bị
+ionic cordova run android
+
+5. Tên trên thiết bị: MyApp
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">Cài Android</li>
+            <li style="font-size: 35px;">Chạy trên thiết bị</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;MyApp trên thiết bị</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_03/MyApp.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Ionic Blank</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch03">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Đổi ứng dụng ATM</h2>
+        <ul>
+          <li>Đổi 'Ionic Blank' thành 'ATM'</li>
+          <li>Thêm
+            <ul>
+              <li>'Chào bạn ...'</li>
+              <li>'Tài khoản: '</li>
+              <li>'Mật khẩu: '</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+  </div>
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>

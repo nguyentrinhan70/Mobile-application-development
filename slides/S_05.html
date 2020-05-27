@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 5</title>
+    <meta name="description" content="Thiết kế giao diện">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch05">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Lập trình Ứng dụng Di động</h1>
+        <h2 style="color:white">Thiết kế giao diện</h2>
+      </section>
+
+      <section class="bgIntroduction-Ch05">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Nội dung</h2>
+        <ul>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Tạo giao diện</li>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Form</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Styling</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Navigation</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo giao diện</h2>
+        <ul>
+          <li>Trang tiêu biểu</li>
+          <li>Ngôn ngữ điều khiển
+            <ul>
+              <li>The * syntax</li>
+              <li>Looping</li>
+              <li>Conditionals</li>
+            </ul>
+          </li>
+          <li>Template Components
+            <ul>
+              <li>Lists</li>
+              <li>Slides</li>
+              <li>Input</li>
+              <li>Grid</li>
+              <li>Icons</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Trang (template, view, page) tiêu biểu</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">danh_sach.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      My Friends
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="doSomethingCool()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (input)="getItems($event)"></ion-searchbar> 
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-avatar item-left>
+        <img [src]="item.picture">
+      </ion-avatar>
+      <h2>{{item.name}}</h2>
+      <p>{{item.description}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;">Tags thường dùng
+            <ul>
+              <li style="font-size: 30px;">ion-header</li>
+              <li style="font-size: 30px;">ion-content</li>
+              <li style="font-size: 30px;">ion-searchbar</li>
+              <li style="font-size: 30px;">ion-list</li>
+              <li style="font-size: 30px;">ion-item</li>
+            </ul>
+            </li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Trang danh sách</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_05/danh_sach.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Thứ tự giao diện chuẩn trên công cụ di động</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Ngôn ngữ điều khiển</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+
+<p *ngIf="someBoolean">Hello</p>
+
+<!-- someBoolean = true -> Hello
+ -->
+
+<p *ngFor="let item of items">{{item.name}}</p>
+
+<!--
+<p>Bananas</p>
+<p>More Bananas</p>
+<p>Pancakes</p>
+ -->
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>The * syntax</b></li>
+            <li style="font-size: 35px;">Biến số từ 'home.ts'
+            <ul>
+              <li style="font-size: 30px;">someBoolean</li>
+              <li style="font-size: 30px;">items</li>
+            </ul>
+            </li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List', 'Giflist'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Ngôn ngữ điều khiển</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+
+<ion-list>
+  <ion-item 
+    *ngFor="let article of articles" 
+    (click)="viewArticle(article)">
+    {{article.title}}
+  </ion-item>
+</ion-list>
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Looping</b></li>
+            <li style="font-size: 35px;">Biến số từ 'home.ts'
+            <ul>
+              <li style="font-size: 30px;">articles</li>
+            </ul>
+            </li>
+            <li style="font-size: 35px;">Phương thức từ 'home.ts'
+            <ul>
+              <li style="font-size: 30px;">viewArticle(article)</li>
+            </ul>
+            </li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Ngôn ngữ điều khiển</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+<!--
+switch cases 
+-->
+<div [ngSwitch]="paragraphNumber">
+  <p *ngSwitchCase="1">Paragraph 1</p>
+  <p *ngSwitchCase="2">Paragraph 2</p>
+  <p *ngSwitchCase="3">Paragraph 3</p>
+  <p *ngSwitchDefault>Paragraph</p>
+</div>
+<!--
+dấu thông tin
+-->
+<ion-avatar [hidden]="hideAvatar" item-left>
+</ion-avatar>
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Conditionals</b></li>
+            <li style="font-size: 35px;">Biến số từ 'home.ts'
+            <ul>
+              <li style="font-size: 30px;">paragraphNumber</li>
+              <li style="font-size: 30px;">hideAvatar</li>
+            </ul>
+            </li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Template components</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+
+<!-- Header -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- Nội dung -->
+<ion-content padding>
+</ion-content>
+
+<!-- Footer -->
+<ion-footer>
+</ion-footer>  
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Header, Content, Footer</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'</li>
+            <li style="font-size: 35px;">Tham khảo: <b>'http://ionicframework.com/docs/ v2/components'</b></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Template components</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+
+<!-- List -->
+<ion-list>
+  <ion-item>Item 1</ion-item>
+  <ion-item>Item 2</ion-item>
+  <ion-item>Item 3</ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+    {{item.title}}
+  </ion-item>
+</ion-list>
+
+<!-- Slides -->
+<ion-slides >
+  <ion-slide>
+    <h2>Slide 1</h2>
+  </ion-slide>
+  <ion-slide>
+    <h2>Slide 2</h2>
+  </ion-slide>
+  <ion-slide>
+    <h2>Slide 3</h2>
+  </ion-slide>
+</ion-slides>
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>List, Slides</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Template components</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_05/slides.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li><b>Slides</b></li>
+            <li>Vuốt hoặc click 'Continue' để xem slides kế</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Template components</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+
+<!-- Input -->
+<ion-list>
+  <ion-item>
+    <ion-label fixed>Username</ion-label>
+    <ion-input type="text" value=""></ion-input> 
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>Password</ion-label>
+    <ion-input type="password"></ion-input> 
+  </ion-item>
+</ion-list>
+
+<!-- Grid: multiple columns -->
+<ion-row>
+  <ion-col></ion-col>
+  <ion-col></ion-col>
+</ion-row>
+<ion-row>
+  <ion-col></ion-col>
+  <ion-col></ion-col>
+  <ion-col></ion-col>
+</ion-row>
+
+<!-- Grid: multiple width columns -->
+<ion-row>
+  <ion-col width-10></ion-col>
+  <ion-col width-20></ion-col>
+  <ion-col width-25></ion-col>
+</ion-row>
+
+<!-- Icon -->
+<ion-icon name="heart"></ion-icon>
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Input, Grid, Icons</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Form</h2>
+        <ul>
+          <li>Kết nối dữ liệu</li>
+          <li>Tạo Form</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Kết nối dữ liệu</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">login.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+export class Login {
+  constructor() {
+  }
+}
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">login.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+<!-- Login -->          
+<ion-list>
+  <ion-item>
+    <ion-label>Username</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item> 
+  <button ion-button>Sign in</button>
+</ion-list>
+
+         </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Dữ liệu tĩnh</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Kết nối dữ liệu</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_05/login.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Trang đăng ký</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Kết nối dữ liệu</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">login.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+export class Login {
+  myValue: string;
+  constructor() {
+  }
+  logValue() {
+    console.log(this.myValue);
+  }
+}
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">login.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+<!-- Cất thông tin --> 
+<ion-input type="text" [(ngModel)]="myValue"></ion-input>
+<ion-input type="text" [(ngModel)]="myValue"></ion-input>
+<button ion-button (click)="logValue()">Log myValue!</button>
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Dữ liệu động</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo form</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">login.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+import { Component } from '@angular/core'; 
+import { NavController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+@Component({
+  templateUrl: 'my-details.html',
+})
+export class MyDetailsPage {
+  constructor(public formBuilder: FormBuilder) {
+  }
+}
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">login.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+<form [formGroup]="myForm" (submit)="saveForm($event)">
+  <ion-item>
+    <ion-label stacked>Field 1</ion-label>
+    <ion-input formControlName="field1" type="text"></ion-input> 
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Field 2</ion-label>
+    <ion-input formControlName="field2" type="text"></ion-input> 
+  </ion-item>
+  <button type="submit">Save Form</button>
+</form>
+
+         </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Form chuẩn</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo form</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">login.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@angular/core'; 
+import { NavController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  templateUrl: 'my-details.html',
+})
+
+export class MyDetailsPage {
+  myForm: any;
+  constructor(public formBuilder: FormBuilder) {
+    this.myForm = formBuilder.group({
+      field1: ['', Validators.required],
+      field2: ['', Validators.required]
+      });
+    }
+    
+    saveForm(event){
+      event.preventDefault();
+      console.log(this.myForm.value);
+    }
+}
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">login.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+         </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Form chuẩn</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Styling</h2>
+        <ul>
+          <li>Cách làm đẹp
+            <ul>
+              <li>Chọn màu</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp; Cách làm đẹp</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">src/theme/variables.scss</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+          
+$colors: (
+  primary:  #387ef5,
+  secondary:  #32db64,
+  danger: #f53d3d,
+  light:  #f4f4f4,
+  dark: #222,
+  favorite: #69BB7B
+);
+
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+<button color="secondary"></button>
+
+<ion-navbar color="secondary">
+<ion-buttons end>
+  <button ion-button color="primary">I'm a primary coloured button in the end position of the nav bar
+  </button>
+</ion-buttons>
+</ion-navbar>
+
+<ion-list no-lines></ion-list>
+
+         </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Đổi màu</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Navigation</h2>
+        <ul>
+          <li>Kiểu chuyển trang
+            <ul>
+              <li>Push/pop</li>
+              <li>Chọn trang gốc</li>
+            </ul>
+          <li>Cơ bản chuyển trang</li>
+          <li>Chuyển dữ liệu</li>
+          <li>Navigation components
+            <ul>
+              <li>Modals</li>
+              <li>Tabs</li>
+              <li>Sidemenu</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Kiểu chuyển trang</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_05/cat.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li><b>Kiểu push/pop</b></li>
+            <li>Trang gốc (mèo)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Kiểu chuyển trang</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_05/dog.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li><b>Kiểu push/pop</b></li>
+            <li>Push trang home(mèo) xuống</li>
+            <li>Trang kế (chó) nằm trên</li>
+          </ul>
+        </div>
+      </section>
+     
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Kiểu chuyển trang</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_05/cow.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li><b>Kiểu push/pop</b></li>
+            <li>Push trang 'chó' xuống</li>
+            <li>Trang kế (bò) nằm trên</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Kiểu chuyển trang</h2>
+        <div class="col preview screenshot-smallframe">
+          <img src="img/buoi_05/cow2.png" style= "position: absolute; left: 17px; top: 155px; width: 267px; height: 475px">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li><b>Chọn trang gốc</b></li>
+            <li>Chọn trang 'bò' làm gốc</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Cơ bản chuyển trang</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@angular/core'; 
+import { NavController } from 'ionic-angular';
+import {SecondPage} from '../second-page/second-page';
+
+@Component({
+  selector: 'home-page',
+  templateUrl: 'home.html'
+})
+
+export class HomePage {
+  constructor(public nav: NavController) {
+    this.nav.push(SecondPage);
+    this.nav.pop();
+    this.nav.setRoot(SecondPage);
+  }
+}
+         
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+         </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Kiểu push/pop</b></li>
+            <li style="font-size: 35px;"><b>Kiểu chọn trang gốc</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Chuyển dữ liệu</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@angular/core'; 
+import { NavController } from 'ionic-angular';
+import {SecondPage} from '../second-page/second-page';
+
+@Component({
+  selector: 'home-page',
+  templateUrl: 'home.html'
+})
+
+export class HomePage {
+  constructor(public nav: NavController) {
+    this.nav.push(SecondPage, {
+      thing1: data1,
+      thing2: data2
+    });
+  }
+}
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <h5 style="color: white;">second.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+
+@Component({
+  selector: 'second-page',
+  templateUrl: 'second-page.html'
+})
+
+export class SecondPage {
+  constructor(nav: NavController, navParams: NavParams){
+    this.navParams.get('thing1');
+  }
+}
+
+         </code></pre>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Navigation components</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@angular/core'; 
+import { NavController, ModalController } from 'ionic-angular';
+import {SecondPage} from '../second-page/second-page';
+
+@Component({
+  selector: 'home-page',
+  templateUrl: 'home.html'
+})
+
+export class HomePage {
+  constructor(public nav: NavController, public modalCtrl: ModalController) {
+    let myModal = modalCtrl.create(SecondPage);
+    myModal.present();
+  }
+}
+         
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+         </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Modals</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Navigation components</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+import { Component } from '@angular/core'; 
+
+@Component({
+  selector: 'home-page',
+  templateUrl: 'home.html'
+})
+
+export class HomePage {
+  tab1Root: any = TabOne;
+  tab2Root: any = TabTwo;
+  tab3Root: any = TabThree;
+  constructor(){
+  }
+}
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+
+<ion-tabs>
+<ion-tab [root]="tab1Root" tabTitle="Tab 1" tabIcon="navigate"></ion-tab>
+<ion-tab [root]="tab2Root" tabTitle="Tab 2" tabIcon="person"></ion-tab>
+<ion-tab [root]="tab3Root" tabTitle="Tab 3" tabIcon="bookmarks"></ion-tab>
+</ion-tabs>
+
+         </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Tabs</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch05">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Navigation components</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 550px;">
+          <h5 style="color: white;">home.ts</h5>
+          <pre><code data-trim contenteditable class="ts" style="width: 550px;background-color: black;">
+
+          </code></pre>
+          <p/>
+          <h5 style="color: white;">home.html</h5>
+          <pre><code data-trim contenteditable class="html" style="width: 550px;background-color: black;">
+
+<ion-menu [content]="content">
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="openPage(homePage)">
+        Home
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+         </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:600px; width: 550px;">
+          <ul>
+            <li style="font-size: 35px;"><b>Sidemenu</b></li>
+            <li style="font-size: 35px;">Ứng dụng: 'Quick List'
+          </ul>
+        </div>
+      </section>
+
+  </div>
+
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>

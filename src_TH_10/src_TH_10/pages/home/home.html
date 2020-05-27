@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Hệ thống ATM
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>--- Tài khoản: {{account.getAccountNo()}} ---</p>
+  <button ion-item (click)="viewAccount()">1. Xem thông tin tài khoản</button>
+  <button ion-item (click)="takePicture()">2. Chụp hình</button>
+  <button ion-item (click)="viewMap()">3. Xem bản đồ</button>
+  <button ion-item (click)="exit()">4. Thoát</button>
+</ion-content>

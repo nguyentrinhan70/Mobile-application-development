@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 2 - Bài tập - Đáp án</title>
+    <meta name="description" content="Giới thiệu">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch02">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Lập trình Ứng dụng Di động</h1>
+        <h2 style="color:white"><b>Thực hành</b>: Thiết kế mô hình MVC</h2>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Cài đặt Java IDE</h2>
+        <ul>
+          <li>Download Eclipse</li>
+          <li>Download ATM source</li>
+          <li>Chạy thử ATMImprove</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Đổi ứng dụng ATM theo MVC</h2>
+        <ul>
+          <li>Viết 4 classes: View, Controller, Model, và Account</li>
+          <li>Tạo một tài khoản khách hàng mặc định</li>
+          <li>Lập trình chức năng Login</li>
+          <li>Viết class ATM.java để thử chức năng với tài khoản trên</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;MVC - Login</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 500px; height: 500px;">
+          <img src="img/buoi_02/MVC_cdiagram.png" style="width: 500px; height: 300px;">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li><i>Model</i>: Account</li>
+            <li><i>Controller</i>: loginController</li>
+            <li><i>View</i>: login, loginResult</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicKeyword-Ch02">
+        <h2 style="color:white"><img src="img/system/calendar-xl.png" id="heading-text-image">&nbsp;&nbsp;Đáp án</h2>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/user-8-xl.png" id="heading-text-image">&nbsp;&nbsp;Class ATM</h2>
+          <pre><code data-trim contenteditable class="java" style="width: 900px; height: 600px;">
+
+public class ATM {
+
+    public static void main(String[] args) {
+
+        View view = new View();
+        Controller control = new Controller();
+        Model model = new Model();
+        
+        model.start();
+        view.start();
+        
+        // loop until user exist
+        boolean repeat = true;
+        while(repeat) {
+            int action = view.menu();
+            String[] data = null;
+            if (action == 1)
+              data = view.loginForm();
+            String message = control.process(model, action, data);
+            repeat = view.display(message);
+        }                    
+    }
+}
+
+          </code></pre>
+      </section>
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/user-8-xl.png" id="heading-text-image">&nbsp;&nbsp;Class View</h2>
+          <pre><code data-trim contenteditable class="java" style="width: 900px; height: 600px;">
+
+import java.util.Scanner;
+
+public class View {
+
+    Scanner sc;
+
+    void start() {
+        sc = new Scanner(System.in);
+        System.out.println("Welcome to ATM Application");
+    }
+
+    // Menu input
+    int menu() {
+        System.out.println();
+        System.out.println("--- ATM Application ---");
+        System.out.println("Select your action: ");
+        System.out.println("1-Login");
+        int action = sc.nextInt();
+        return action;
+    }
+    
+    // Yeu cau nguoi dung nhap ID va PW
+    String[] loginForm() {
+
+        System.out.print("Enter your ID:");
+        String id = sc.next();
+        System.out.print("Enter your password:");
+        String pw = sc.next();
+        // save and return
+        String[] data = {id, pw};
+        return data;
+    }
+
+    // Yeu cau nguoi dung nhap ID va PW
+    boolean display(String message) {
+
+        System.out.println();
+        System.out.println("Result: " + message);
+        System.out.println();
+        // yeu cau cong viec
+        System.out.print("Continue? (y/n)");
+        String choice = sc.next();
+        System.out.println();
+        
+        if (choice.equalsIgnoreCase("y"))
+          return true;
+       
+        System.out.println("Goodbye!");
+        return false;
+    }
+}
+          </code></pre>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/user-8-xl.png" id="heading-text-image">&nbsp;&nbsp;Class Controller</h2>
+          <pre><code data-trim contenteditable class="java" style="width: 900px; height: 600px;">
+public class Controller {
+
+    String process(Model model, int action, String[] data) {
+
+        String message;
+        switch(action) {
+            case 1: 
+                    //Goi ham login in Model
+                    String id = data[0];
+                    String pw = data[1];
+                    boolean ok = model.login(id, pw);
+                    message = (ok) ? "Login is ok" : "Login fail";
+                    break;
+            default: 
+                    message = "Invalid operation";
+                    break;
+        }
+        return message;
+    }
+        
+}
+          </code></pre>
+
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/user-8-xl.png" id="heading-text-image">&nbsp;&nbsp;Class Model / Account</h2>
+          <pre><code data-trim contenteditable class="java" style="width: 900px; height: 600px;">
+public class Model {
+    Account acc;
+
+    void start() {
+        // Tạo tài khoản mặc định
+        acc = new Account("hoang","123");
+    }
+
+    boolean login(String id, String pw) {
+      return acc.checkLogin(id, pw);
+    }
+
+}
+
+public class Account {
+    private String id;
+    private String pw;
+
+    public Account(String id, String pw) {
+        this.id = id;
+        this.pw = pw;
+    }
+
+    public boolean checkLogin(String id, String pw){
+        // Kiem tra login voi tai khoan nay  
+        return id.equals(this.id) && pw.equals(this.pw);
+    }
+
+}
+
+          </code></pre>
+
+      </section>
+
+  </div>
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>

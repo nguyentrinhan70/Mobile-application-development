@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 2</title>
+    <meta name="description" content="Phát triển Ứng dụng Di động">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch02">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Phát triển Ứng dụng Di động</h1>
+        <h2 style="color:white">Lập trình Java</h2>
+      </section>
+
+      <section class="bgIntroduction-Ch02">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Nội dung</h2>
+        <ul>
+          <li><img src="img/system/calendar-xl.png" id="sub-text-image">&nbsp;&nbsp;Lập trình hướng đối tượng với Java</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Thiết kế phần mềm với MVC </li>
+        </ul>
+      </section>
+
+      <section class="bgTopicKeyword-Ch02">
+        <h2 style="color:white"><img src="img/system/calendar-xl.png" id="heading-text-image">&nbsp;&nbsp;Lập trình hướng đối tượng với Java</h2>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/literature-xl.png" id="heading-text-image">&nbsp;&nbsp;Chức năng ngôn ngữ đối tượng</h2>
+        <ul>
+          <li>Trừu tượng (Abstraction)</li>
+          <li>Đóng gói (Encapsulation)</li>
+          <li>Kế thừa (Inheritance)</li>
+          <li>Đa hình (Polymorphism)</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Class</h2>
+
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 500px;">
+          <pre><code data-trim contenteditable class="java"
+                     style="width: 450px;background-color: black;">
+
+public class Account {
+    private int accountNo;
+    private String password;
+    private double amount;
+    private String customerName;
+    //Constructor
+    public Account(){
+        accountNo=0;
+        password="";
+        amount=0;
+        customerName="";
+    }
+    String getName(){
+        return customerName;
+    }
+}
+
+          </code></pre>
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Định danh (Definition): Account</li>
+            <li>Constructor: Account()</li>
+            <li>Phương thức (Method): getName()</li>
+            <li>Thuộc tính (Attributes): accountNo()</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Phân tích hệ thống</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 500px; height: 500px;">
+          <img src="img/buoi_02/ATM.png" style="width: 400px; height: 400px;">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Hệ thống ATM</li>
+            <li>Khách hàng</li>
+            <li>Chức năng: rút, nạp tiền</li>
+            <li>Dữ liệu: tài khoản</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Kết nối đối tượng</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 500px; height: 500px;">
+          <img src="img/buoi_02/cdiagram.png" style="width: 450px; height: 300px;">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Kết nối qua phương thức</li>
+            <li>Thuộc tính bảo mật</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicKeyword-Ch02">
+        <h2 style="color:white"><img src="img/system/calendar-xl.png" id="heading-text-image">&nbsp;&nbsp;Thiết kế phần mềm với MVC</h2>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Mô hình MVC</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 500px; height: 500px;">
+          <img src="img/buoi_02/MVC.png" style="width: 450px; height: 450px;">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>Logics: Controller</li>
+            <li>Trình bày: View</li>
+            <li>Dữ liệu: Model</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Sequence Diagram - Login</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 500px; height: 500px;">
+          <img src="img/buoi_02/sdiagram.png" style="width: 500px; height: 300px;">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>User -> View (Input)</li>
+            <li>View -> Controller</li>
+            <li>Controller -> Model (Database)</li>
+            <li>Model -> Controller</li>
+            <li>Controller -> View (Output)</li>
+            <li>View -> User</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch02">
+        <h2 style="color:white"><img src="img/system/topic-xl.png" id="heading-text-image">&nbsp;&nbsp;Class Diagram - Login</h2>
+        <div class="col code" style="position: absolute; top:40; left:0px; width: 500px; height: 500px;">
+          <img src="img/buoi_02/MVC_cdiagram.png" style="width: 500px; height: 300px;">
+        </div>
+        <div class="col code" style="position: absolute; top:40; left:520px; width: 500px;">
+          <ul>
+            <li>login -> loginController</li>
+            <li>loginController -> Account</li>
+            <li>Account -> loginController</li>
+            <li>loginController -> loginResult</li>
+          </ul>
+        </div>
+      </section>
+
+  </div>
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+
+  </body>
+</html>

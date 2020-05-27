@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Ứng dụng Di động</title>
+    <meta name="description" content="Ứng dụng Di động">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch06">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">CHUYÊN ĐỀ</h1>
+        <h2 style="color:white">Phát triển Ứng dụng Di động</h2>
+        <h2 style="color:white">Phan Viết Hoàng</h2>
+        <h2 style="color:white">Khoa Công nghệ Thông tin</h2>
+        <h3 style="color:white">Đại học Phạm Văn Đồng, Quảng Ngãi</h3>
+      </section>
+
+      <section class="bgIntroduction-Ch06">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Nội dung</h2>
+        <ul>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Mục tiêu chuyên đề</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Kinh nghiệm đào tạo</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Định lượng thành quả</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Định hướng nghiên cứu</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Công nghiệp 4.0</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Câu lạc bộ khởi nghiệp</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Đề tài nghiên cứu</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:270px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Mục tiêu chuyên đề
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/muctieu.jpg" height="300" style= "position: absolute; left: 0px; top: 200px; width: 500px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>nắm vững kiến trúc phần mềm</li>
+            <li>tổng hợp kiến thức lập trình</li>
+            <li>làm quen công nghệ di động</li>
+            <li>thực tập phát triển ứng dụng</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:270px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Kinh nghiệm đào tạo
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/experience.jpg" height="300" style= "position: absolute; left: 0px; top: 200px; width: 500px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>SV đủ kỹ năng lập trình</li>
+            <li>hứng thú với công nghệ mới</li>
+            <li>quen dần các bước phát triển</li>
+            <li>thiếu thời gian phát triển ứng dụng</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:270px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Định lượng thành quả
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/outcome.jpg" height="300" style= "position: absolute; left: 0px; top: 200px; width: 500px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>kiến thức SV đạt yêu cầu</li>
+            <li>đủ cơ bản để nâng cao kỹ năng</li>
+            <li>cần làm ứng dụng thật sự để đáp ứng nhu cầu tuyển dụng</li>
+            <li>điểm đánh giá: 7/10</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:270px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Định hướng nghiên cứu
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/dulich.jpg" height="300" style= "position: absolute; left: 0px; top: 200px; width: 500px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Ứng dụng cơ bản
+              <ul>
+                <li>Bản đồ Quảng Ngãi</li>
+                <li>Món ăn quê hương</li>
+                <li>Du lịch Lý Sơn</li>
+              </ul>
+            </li>
+            <li>Ứng dụng nâng cao
+              <ul>
+                <li>Đăng ký môn học</li>
+                <li>Lịch hẹn khám bệnh</li>
+                <li>Giao dịch bất động sản</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:270px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Công nghiệp 4.0
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/industry4.png" height="300" style= "position: absolute; left: 0px; top: 200px; width: 500px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Kỹ thuật số
+              <ul>
+                <li>Trí tuệ nhân tạo (AI)</li>
+                <li>Vạn vật kết nối (IoT)</li>
+                <li>Dữ liệu lớn (Big Data)</li>
+              </ul>
+            </li>
+            <li>Công nghệ sinh học
+              <ul>
+                <li>Nông nghiệp, Thủy sản, Y dược</li>
+                <li>Chế biến thực phẩm</li>
+                <li>Bảo vệ môi trường</li>
+              </ul>
+            </li>
+            <li>Vật lý
+              <ul>
+                <li>Robot, xe tự lái</li>
+                <li>Máy in 3D, vật liệu mới</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:270px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Câu lạc bộ khởi nghiệp
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/caulacbo1.jpg" height="300" style= "position: absolute; left: 0px; top: 200px; width: 500px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Sân chơi cho GV/SV
+              <ul>
+                <li>đam mê nghiên cứu khoa học</li>
+                <li>thích phát triển ứng dụng di động</li>
+                <li>có tinh thần khởi nghiệp</li>
+              </ul>
+            </li>
+            <li>Kết hợp nghiên cứu với nhà nước</li>
+            <li>Môi trường liên kết với doanh nghiệp</li>
+            <li>Cơ hội kết nối nhà đầu tư</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgIntroduction-Ch06">
+        <h2 style="color:white"><img src="img/system/planner-xl.png" id="heading-text-image">&nbsp;&nbsp;Đề tài nghiên cứu/phát triển</h2>
+        <ul>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Ứng dụng ngôn ngữ hổ trợ đồng bào dân tộc</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Ứng dụng phân tích cây lá hổ trợ nông dân</li>
+          <li><img src="img/system/student-xl.png" id="sub-text-image">&nbsp;&nbsp;Ứng dụng kết nối thông tin nông nghiệp</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:100px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Nhận dạng và phát âm tiếng H're
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/hre3.jpg" height="300" style= "position: absolute; left: 0px; top: 200px; width: 500px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Mục đích
+              <ul>
+                <li>Hổ trợ giao tiếp người H're/Kinh</li>
+                <li>Phổ biến chính sách nhà nước</li>
+                <li>Phát triển giáo dục người dân tộc</li>
+                <li>Hổ trợ khám sức khỏe</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:100px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Nhận dạng và phát âm tiếng H're
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/hre6.jpg" height="300" style= "position: absolute; left: 0px; top: 200px; width: 500px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Công nghệ
+              <ul>
+                <li>Thông minh nhân tạo (4.0)</li>
+                <li>Vạn vật kết nối (4.0)</li>
+                <li>Nền tảng di động</li>
+                <li>Công nghệ phần mềm</li>
+                <li>Ngôn ngữ học</li>
+                <li>Văn hóa học</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:100px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Nhận dạng và phát âm tiếng H're
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/hre7.jpg" height="300" style= "position: absolute; left: 50px; top: 200px; width: 350px; height: 420px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Tham gia
+              <ul>
+                <li>Ban Dân tộc (TQN)</li>
+                <li>Sở Giáo dục và Đào tạo (TQN)</li>
+                <li>Sở Văn hóa và Thông tin (TQN)</li>
+                <li>Đài Phát thanh và Truyền hình (TQN)</li>
+                <li>Khoa Sư phạm Xã hội (ĐHPVĐ)</li>
+                <li>Khoa CNTT (ĐHPVĐ)</li>
+                <li>Khoa CNTT (ĐHKHTN-TpHCM)</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:100px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Ứng dụng phân tích cây lá
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/smll1.jpg" height="300" style= "position: absolute; left: 50px; top: 200px; width: 350px; height: 200px">
+          <img src="img/tong_ket/smll2.jpg" height="300" style= "position: absolute; left: 50px; top: 420px; width: 350px; height: 200px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Hổ trợ nông dân phân tích lúa
+              <ul>
+                <li>Dùng bảng so màu lá lúa Nhật Bản</li>
+                <li>Dự đoán đạm trong lúa để bón</li>
+                <li>Đảm bảo chất lượng và năng suất</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:100px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Ứng dụng phân tích cây lá
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/smll3.jpg" height="300" style= "position: absolute; left: 20px; top: 200px; width: 450px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Nhận dạng bệnh lúa
+              <ul>
+                <li>Xác định bệnh</li>
+                <li>Gợi ý phương pháp phòng trừ</li>
+                <li>Bệnh lúa ĐBSCL: cháy bìa, đốm vằn, v.v</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="position: absolute; left:100px; top: 80px;" >
+          <img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Ứng dụng kết nối thông tin
+        </h2>
+        <div class="col preview image-frame">
+          <img src="img/tong_ket/nong_dan_hieu_biet.png" height="300" style= "position: absolute; left: 20px; top: 200px; width: 450px; height: 350px">
+        </div>
+        <div class="col code" style="position: absolute; left:520px; top: 200px; width: 700px;">
+          <ul>
+            <li>Cung cấp thông tin nông nghiệp
+              <ul>
+                <li>Tin nóng từ:
+                  <ul>
+                    <li>Mạng xã hội: Nong Dan Hieu Biet</li>
+                    <li>Sở Nông Nghiệp</li>
+                    <li>Đài PTTH</li>
+                  </ul>
+                </li>
+                <li>Tin thời tiết, lụt bão</li>
+                <li>Giá cả, v.v</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+    
+  </div>
+
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>

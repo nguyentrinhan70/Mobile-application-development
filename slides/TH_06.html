@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 6 - Thực hành</title>
+    <meta name="description" content="Tạp mô hình ATM với Ionic Creator">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Ch06">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Lập trình Ứng dụng Di động</h1>
+        <h2 style="color:white"><b>Thực hành</b>: Tạo mô hình ATM với Ionic Creator</h2>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo tài khoản Creator</h2>
+        <ul>
+          <li>https://creator.ionic.io
+          <li>Tạo dự án ATM mới dùng '<b>Ionic 2</b>'</li>
+          <li>Thao tác ứng dụng để làm quen</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicDetail-Ch06">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Tạo mô hình</h2>
+        <ul>
+          <li>Thiết kế và tạo mô hình tương tự như hình sau</li>
+          <li>Cất source Ionic vào để bổ sung</li>
+        </ul>
+      </section>
+
+      <section class="bgTopicKeyword-Ch06" >
+        <h2 id="color-text-heading">Ionic Creator</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_06/creator.png" width="900" height="500">
+        </p>
+      </section>
+
+      <section class="bgTopicKeyword-Ch06" >
+        <h2 id="color-text-heading">Trang Đăng nhập</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_06/ATM_Login.png" width="900" height="500">
+        </p>
+      </section>
+
+      <section class="bgTopicKeyword-Ch06" >
+        <h2 id="color-text-heading">Trang Home</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_06/ATM_Home.png" width="900" height="500">
+        </p>
+      </section>
+
+      <section class="bgTopicKeyword-Ch06" >
+        <h2 id="color-text-heading">Trang Chuyển tiền</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_06/ATM_Transfer.png" width="900" height="500">
+        </p>
+      </section>
+
+      <section class="bgTopicKeyword-Ch06" >
+        <h2 id="color-text-heading">Chạy thử</h2>
+        <p style="margin-top: 20px">
+            <img src="img/buoi_06/atm_preview.png" width="900" height="500">
+        </p>
+      </section>
+
+  </div>
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>

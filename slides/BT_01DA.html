@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+<!-- START CHAPTER CONTENT -->
+    <title>Buổi 1 - Bài tập - Đáp án</title>
+    <meta name="description" content="Giới thiệu">
+<!-- END CHAPTER CONTENT -->
+
+<!-- 
+  START HTTP REFERENCE
+http://www.iconsdb.com/white-icons/?search=people
+https://www.w3schools.com/colors/colors_names.asp
+http://paletton.com
+https://github.com/LexmarkWeb/csi.js
+  END HTTP REFERENCE
+--> 
+
+<!-- START HEAD CONTENT -->
+
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+    <meta name="author" content="https://twitter.com/perrygovier">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="css/hoang-slide.css">
+    <link rel="stylesheet" href="css/hoang-color.css">
+
+<!-- END HEAD CONTENT -->
+
+  </head>
+  <body>
+
+<!-- START CHAPTER CONTENT -->
+
+<div class="reveal">
+  <div class="slides">
+
+      <section class="bgTitle-Orient">
+        <img src="img/system/conference-xl.png">
+        <h1 style="color:white">Lập trình Ứng dụng Di động</h1>
+        <h2 style="color:white"><b>Bài tập</b>: Lập trình Java cơ bản</h2>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/student-xl.png" id="heading-text-image">&nbsp;&nbsp;Kỹ năng Java</h2>
+        <ul>
+          <li>Lập trình một ứng dụng Java <i>TRÊN GIẤY</i> với các yêu cầu sau:
+            <ul>
+              <li>Tên class: <i>HelloFriend</i></li>
+              <li>Yêu cầu người dùng nhập <i>tên, tuổi, giới tính, điện thoại</i></li>
+              <li>In ra command console các thông tin trên, chào và cám ơn người dùng</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+       <section class="bgTopicKeyword-Orient">
+        <h2 style="color:white"><img src="img/system/calendar-xl.png" id="heading-text-image">&nbsp;&nbsp;Đáp án</h2>
+      </section>
+
+      <section class="bgTopicDetail-Orient">
+        <h2 style="color:white"><img src="img/system/user-8-xl.png" id="heading-text-image">&nbsp;&nbsp;Hello Friend</h2>
+          <pre><code data-trim contenteditable class="java" style="width: 900px; height: 600px;">
+import java.util.Scanner;
+/**
+ * @author Phan Viet Hoang
+ *
+ */
+
+public class HelloFriend
+{
+    public static void main( String args[] ) {
+        HelloFriend hello = new HelloFriend();
+        hello.execute();    
+    }
+    
+    public void execute() {
+        
+        String ten;
+        double tuoi;
+        String gioi_tinh;
+        int dien_thoai;
+
+        System.out.println("--- Hello Friend ---");
+        
+        // Allows a person to enter his/her name   
+        Scanner one = new Scanner(System.in);
+        System.out.println("Ten cua ban:" );  
+        ten = one.next();
+        
+        // Allows a person to enter his/her age   
+        Scanner two = new Scanner(System.in);
+        System.out.println("Tuoi cua ban:" );  
+        tuoi = two.nextDouble();
+        
+        // Allows a person to enter his/her gender  
+        Scanner three = new Scanner(System.in);
+        System.out.println("Gioi tinh cua ban:" );  
+        gioi_tinh = three.next();
+
+        // Allows a person to enter his/her telephone number
+        Scanner four = new Scanner(System.in);
+        System.out.println("Dien thoai cua ban:" );  
+        dien_thoai = four.nextInt();
+
+        System.out.println("---");
+        System.out.println("Chao ban " + ten + "!");
+        System.out.println("Thong tin cua ban:");
+        System.out.println(" Tuoi      : " + tuoi);
+        System.out.println(" Gioi tinh : " + gioi_tinh);
+        System.out.println(" Dien thoai: " + dien_thoai);
+        System.out.println("");
+        System.out.println("Cam on ban!");
+
+    }
+}
+
+          </code></pre>
+
+      </section>
+ 
+  </div>
+</div>
+
+<!-- END CHAPTER CONTENT -->
+
+<!-- START SCRIPT CONTENT -->
+        
+    <div class="color-primary-0-orient"></div>
+    <div class="color-primary-1-orient"></div>
+    <div class="color-primary-2-orient"></div>
+    <div class="color-primary-3-orient"></div>
+    <div class="color-primary-4-orient"></div>
+
+    <div class="color-primary-0-ch01"></div>
+    <div class="color-primary-1-ch01"></div>
+    <div class="color-primary-2-ch01"></div>
+    <div class="color-primary-3-ch01"></div>
+    <div class="color-primary-4-ch01"></div>
+    
+    <div class="color-primary-0-ch02"></div>
+    <div class="color-primary-1-ch02"></div>
+    <div class="color-primary-2-ch02"></div>
+    <div class="color-primary-3-ch02"></div>
+    <div class="color-primary-4-ch02"></div>
+
+    <div class="color-primary-0-ch03"></div>
+    <div class="color-primary-1-ch03"></div>
+    <div class="color-primary-2-ch03"></div>
+    <div class="color-primary-3-ch03"></div>
+    <div class="color-primary-4-ch03"></div>
+
+    <div class="color-primary-0-ch04"></div>
+    <div class="color-primary-1-ch04"></div>
+    <div class="color-primary-2-ch04"></div>
+    <div class="color-primary-3-ch04"></div>
+    <div class="color-primary-4-ch04"></div>
+
+    <div class="color-primary-0-ch05"></div>
+    <div class="color-primary-1-ch05"></div>
+    <div class="color-primary-2-ch05"></div>
+    <div class="color-primary-3-ch05"></div>
+    <div class="color-primary-4-ch05"></div>
+
+    <div class="color-primary-0-ch06"></div>
+    <div class="color-primary-1-ch06"></div>
+    <div class="color-primary-2-ch06"></div>
+    <div class="color-primary-3-ch06"></div>
+    <div class="color-primary-4-ch06"></div>
+
+    <div class="color-primary-0-ch07"></div>
+    <div class="color-primary-1-ch07"></div>
+    <div class="color-primary-2-ch07"></div>
+    <div class="color-primary-3-ch07"></div>
+    <div class="color-primary-4-ch07"></div>
+
+    <div class="color-primary-0-ch08"></div>
+    <div class="color-primary-1-ch08"></div>
+    <div class="color-primary-2-ch08"></div>
+    <div class="color-primary-3-ch08"></div>
+    <div class="color-primary-4-ch08"></div>
+
+    <div class="color-primary-0-ch09"></div>
+    <div class="color-primary-1-ch09"></div>
+    <div class="color-primary-2-ch09"></div>
+    <div class="color-primary-3-ch09"></div>
+    <div class="color-primary-4-ch09"></div>
+
+    <div class="color-primary-0-ch10"></div>
+    <div class="color-primary-1-ch10"></div>
+    <div class="color-primary-2-ch10"></div>
+    <div class="color-primary-3-ch10"></div>
+    <div class="color-primary-4-ch10"></div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/hoang-slide.js"></script>
+    
+<!-- END SCRIPT CONTENT -->
+
+  </body>
+</html>
